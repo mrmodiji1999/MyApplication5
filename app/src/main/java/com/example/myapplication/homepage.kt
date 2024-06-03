@@ -22,19 +22,16 @@ class Homepage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_homepage) // Move this line above findViewById calls
+        setContentView(R.layout.activity_homepage)
 
         val name = findViewById<EditText>(R.id.name)
         val pass = findViewById<EditText>(R.id.passwd)
         val submit = findViewById<Button>(R.id.submit)
 
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.escuelajs.co/api/v1/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+
 
         val apiService = RetrofitInstance.api
-//
+
         submit.setOnClickListener {
             val username = name.text.toString()
             val userpasswd = pass.text.toString()
